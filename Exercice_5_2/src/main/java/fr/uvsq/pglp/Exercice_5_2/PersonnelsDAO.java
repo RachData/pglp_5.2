@@ -25,7 +25,16 @@ public class PersonnelsDAO extends DAO<Personnels>{
 	@Override
 	public Personnels create(Personnels obj) {
 		try {
-			PreparedStatement prepare = connect.prepareStatement("INSERT INTO personnes (nom, prenom, Id) VALUES (?,?,?) ");
+			
+			Statement s;
+	        s = connect.createStatement();
+			try {
+		        s.execute("create table derby(nom varchar(40), prenom varchar(40),Id int)");
+		        System.out.println("Created table location");
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			PreparedStatement prepare = connect.prepareStatement("INSERT INTO derby (nom, prenom, Id) VALUES (?,?,?) ");
 			prepare.setString(1, obj.getNom());
 			prepare.setString(2, obj.getPrenom());
 			prepare.setInt(3, obj.getId());
@@ -37,12 +46,12 @@ public class PersonnelsDAO extends DAO<Personnels>{
 	}
 
 	@Override
-	public Personnels find(String Id) {
+	public Personnels find(int Id) {
 
 		Personnels perso=null;
 		try {
-			PreparedStatement prepare = this.connect.prepareStatement("SELECT * FROM personnes WHERE nom = ?");
-			prepare.setString(1, Id);
+			PreparedStatement prepare = this.connect.prepareStatement("SELECT * FROM derby WHERE ID = ?");
+			prepare.setInt(1, Id);
 			ResultSet result= prepare.executeQuery();
 			if(result.first()) {
 				perso = new Personnels

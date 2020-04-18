@@ -16,7 +16,7 @@ public class CompositePersoDAO extends DAO<CompositePerso>{
 	}
 
 	@Override
-	public CompositePerso find(String id) {
+	public CompositePerso find(int id) {
 		// TODO Auto-generated method stub
 		CompositePerso grpperso=null;		
 		return grpperso;

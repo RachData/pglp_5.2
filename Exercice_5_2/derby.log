@@ -1,0 +1,19 @@
+----------------------------------------------------------------
+Sat Apr 18 22:00:51 CEST 2020:
+Amorçage de Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585) : instance a816c00e-0171-8ee1-2216-00000ea012e0 
+dans le répertoire de base de données /root/Documents/Java/ProgGL/exo5.2/Exercice_5_2/PersoDB avec le chargeur de classe jdk.internal.loader.ClassLoaders$AppClassLoader@68de145
+Chargé de file:/opt/Apache/db-derby-10.15.2.0-bin/lib/derby.jar
+java.vendor=Debian
+java.runtime.version=13.0.2+8-Debian-2
+user.dir=/root/Documents/Java/ProgGL/exo5.2/Exercice_5_2
+os.name=Linux
+os.arch=amd64
+os.version=5.4.0-kali3-amd64
+derby.system.home=null
+Chargeur de classe de la base de données démarré - derby.database.classpath = ''
+----------------------------------------------------------------
+Sat Apr 18 22:03:12 CEST 2020 : fermeture du moteur Derby
+----------------------------------------------------------------
+Sat Apr 18 22:03:12 CEST 2020:
+Fermeture de l'instance a816c00e-0171-8ee1-2216-00000ea012e0 sur le répertoire de base de données /root/Documents/Java/ProgGL/exo5.2/Exercice_5_2/PersoDB avec le chargeur de classe jdk.internal.loader.ClassLoaders$AppClassLoader@68de145 
+----------------------------------------------------------------

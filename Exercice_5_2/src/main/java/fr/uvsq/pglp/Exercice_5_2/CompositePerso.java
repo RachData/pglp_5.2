@@ -13,14 +13,16 @@ public class CompositePerso implements PersonelsInter, Serializable{
 	private int IDgrp;
 	public ArrayList<PersonelsInter> grpPerso=new ArrayList<PersonelsInter>();
 	
+
+	public CompositePerso(int IDgrp) {
+		this.IDgrp=IDgrp;
+	}
+	
 	public ArrayList<PersonelsInter> gettab(){
 		return (ArrayList<PersonelsInter>) Collections.unmodifiableList(this.grpPerso);
 		
 	}
 	
-	public CompositePerso(int IDgrp) {
-		this.IDgrp=IDgrp;
-	}
 
 	@Override
 	public void print() {
