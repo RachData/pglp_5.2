@@ -25,7 +25,7 @@ public class PersonnelsDaoTest {
 
 	@Test
 	public void test() {
-		try {
+		/*try {
 			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 			System.out.println("passer");
 		} catch (Exception e) {
@@ -50,7 +50,7 @@ public class PersonnelsDaoTest {
 			persoGet.print();
 		} catch (Exception e) {
 			// TODO: handle exception
-		}
+		}*/
 		
 	}
 

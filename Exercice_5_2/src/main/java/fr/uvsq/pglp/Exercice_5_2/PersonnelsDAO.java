@@ -29,8 +29,8 @@ public class PersonnelsDAO extends DAO<Personnels>{
 			Statement s;
 	        s = connect.createStatement();
 			try {
-		        s.execute("create table derby(nom varchar(40), prenom varchar(40),Id int)");
-		        System.out.println("Created table location");
+		        s.execute("create table derby(nom varchar(40), prenom varchar(40),Id int ,PRIMARY KEY (id))");
+		        System.out.println("Created table derby");
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
@@ -53,7 +53,7 @@ public class PersonnelsDAO extends DAO<Personnels>{
 			PreparedStatement prepare = this.connect.prepareStatement("SELECT * FROM derby WHERE ID = ?");
 			prepare.setInt(1, Id);
 			ResultSet result= prepare.executeQuery();
-			if(result.first()) {
+			if(result.next()) {
 				perso = new Personnels
 						.Builder(result.getString("nom"), result.getString("prenom"), result.getInt("Id"))
 						.build();
