@@ -11,6 +11,7 @@ public class DAOFactoryTest {
 	Personnels persoSave1;
 	Personnels persoSave2;
 	Personnels persoSave3;
+	Personnels persodelete;
 	Personnels persoGet;
 	Personnels persoGet1;
 	Personnels persoGet2;
@@ -32,6 +33,8 @@ public class DAOFactoryTest {
 				.Builder("Traore", "Benedicte", 3).build();
 		persoSave3= new Personnels
 				.Builder("Jean", "Jacques", 4).build();
+		persodelete= new Personnels
+				.Builder("Simpore", "Naimatou", 5).build();
 	}
 
 	@Test
@@ -41,6 +44,7 @@ public class DAOFactoryTest {
 		persoGet=persoDao.create(persoSave);
 		persoGet2=persoDao.create(persoSave2);
 		persoGet3=persoDao.create(persoSave3);
+		persoGet3=persoDao.create(persodelete);
 		assertTrue(persoGet!=null);
 		assertTrue(persoGet1!=null);
 		assertTrue(persoGet2!=null);
@@ -61,5 +65,18 @@ public class DAOFactoryTest {
 		
 		
 	}
+	
+	@Test
+	public void testUpdate() {
+		persoDao = DAOFactory.getPersonnelsDAO();
+		assertTrue(persoDao.update(4,"Jean"," Luc")==1);
+	}
+	
+	@Test
+	public void testDelete() {
+		persoDao = DAOFactory.getPersonnelsDAO();
+		assertTrue(persoDao.delete(5)==1);
+	}
+	
 
 }

@@ -14,6 +14,6 @@ public abstract class DAO<T> implements Serializable{
 	public abstract T create(T obj);
 	public abstract T find(int id);
 	public abstract int update(int id , String nom, String premnom);
-	public abstract void delete (T obj);
+	public abstract int delete (int id);
 
 }

@@ -85,18 +85,18 @@ public class PersonnelsDAO extends DAO<Personnels>{
 	}
 
 	@Override
-	public void delete(Personnels obj) {
+	public int delete(int id) {
 		try
 		{
-			PreparedStatement prepare =this.connect.prepareStatement("delete from personne where id=?");
-			prepare.setLong(1, obj.getId());
-			prepare.executeUpdate();				
+			PreparedStatement prepare =this.connect.prepareStatement("delete from personnel where id=?");
+			prepare.setInt(1, id);
+			return prepare.executeUpdate();				
 		}
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
 		}	
-		
+		return 0;
 	}
 
 }
