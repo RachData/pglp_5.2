@@ -29,12 +29,12 @@ public class PersonnelsDAO extends DAO<Personnels>{
 			Statement s;
 	        s = connect.createStatement();
 			try {
-		        s.execute("create table derby(nom varchar(40), prenom varchar(40),Id int ,PRIMARY KEY (id))");
+		        s.execute("create table personnel(nom varchar(40), prenom varchar(40),Id int ,PRIMARY KEY (id))");
 		        System.out.println("Created table derby");
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
-			PreparedStatement prepare = connect.prepareStatement("INSERT INTO derby (nom, prenom, Id) VALUES (?,?,?) ");
+			PreparedStatement prepare = connect.prepareStatement("INSERT INTO personnel (nom, prenom, Id) VALUES (?,?,?) ");
 			prepare.setString(1, obj.getNom());
 			prepare.setString(2, obj.getPrenom());
 			prepare.setInt(3, obj.getId());
@@ -50,7 +50,7 @@ public class PersonnelsDAO extends DAO<Personnels>{
 
 		Personnels perso=null;
 		try {
-			PreparedStatement prepare = this.connect.prepareStatement("SELECT * FROM derby WHERE ID = ?");
+			PreparedStatement prepare = this.connect.prepareStatement("SELECT * FROM personnel WHERE ID = ?");
 			prepare.setInt(1, Id);
 			ResultSet result= prepare.executeQuery();
 			if(result.next()) {
@@ -67,14 +67,35 @@ public class PersonnelsDAO extends DAO<Personnels>{
 	}
 
 	@Override
-	public Personnels update(Personnels obj) {
-		// TODO Auto-generated method stub
-		return null;
+	public int update(int id , String nom , String prenom) {
+		try
+		{
+			PreparedStatement prepare =this.connect.prepareStatement("update personnel set nom=?,prenom=? where id=?");
+			prepare.setString(1, nom);
+			prepare.setString(2, prenom);
+			prepare.setInt(3, id);
+			return prepare.executeUpdate();	
+			
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}	
+		return 0;
 	}
 
 	@Override
 	public void delete(Personnels obj) {
-		// TODO Auto-generated method stub
+		try
+		{
+			PreparedStatement prepare =this.connect.prepareStatement("delete from personne where id=?");
+			prepare.setLong(1, obj.getId());
+			prepare.executeUpdate();				
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}	
 		
 	}
 
